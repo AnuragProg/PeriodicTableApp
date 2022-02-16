@@ -1,11 +1,12 @@
 package com.example.periodictableapp.listedelements
 
 import android.os.Bundle
+import android.provider.Settings
 import android.util.Log
+import android.view.*
+import android.widget.Toast
+import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -22,9 +23,11 @@ class ListedElements : Fragment() {
 
     private lateinit var allElements : List<Element>
     private val listedElementsViewModel : ListedElementsViewModel by viewModels()
+    private lateinit var adapter : ListedElementsAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setHasOptionsMenu(true)
         allElements = listedElementsViewModel.getPeriodicTableFromAsset(requireContext())
     }
 
@@ -39,11 +42,35 @@ class ListedElements : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val adapter = ListedElementsAdapter(allElements)
-        var recyclerView : RecyclerView = view.findViewById(R.id.recyclerView)
+        adapter = ListedElementsAdapter()
+        val recyclerView : RecyclerView = view.findViewById(R.id.recyclerView)
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
 
         recyclerView.adapter = adapter
+        adapter.submitList(allElements)
+
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.app_bar_menu, menu)
+
+        val custom_menu = menu.findItem(R.id.search_bar)
+        val search_view = custom_menu?.actionView as SearchView
+        search_view.queryHint = "Query Hint"
+
+        search_view.setOnQueryTextListener( object : SearchView.OnQueryTextListener{
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                Toast.makeText(requireContext(), "onQueryTextSubmit called", Toast.LENGTH_SHORT).show()
+                return false
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+                val listedElements = allElements.filter{ newText.toString().lowercase() in it.name.lowercase()}
+                adapter.submitList(listedElements)
+                return true
+            }
+
+        })
 
     }
 

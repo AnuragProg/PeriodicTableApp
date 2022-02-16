@@ -17,8 +17,8 @@ import org.w3c.dom.Text
 
 
 class ListedElementsAdapter(
-    private val elementList : List<Element>
-) : RecyclerView.Adapter<ListedElementsAdapter.ListedElementViewHolder>() {
+//    private val elementList : List<Element>
+): ListAdapter<Element, ListedElementsAdapter.ListedElementViewHolder>(diffutil()) {
 
     inner class ListedElementViewHolder(view: View) : RecyclerView.ViewHolder(view){
 
@@ -50,8 +50,9 @@ class ListedElementsAdapter(
     }
 
     override fun onBindViewHolder(holder: ListedElementViewHolder, position: Int) {
-        val element = elementList[position]
+//        val element = elementList[position]
 
+        val element = getItem(position)
 
 
         val element_name = element.name
@@ -93,9 +94,23 @@ class ListedElementsAdapter(
 
     }
 
-    override fun getItemCount(): Int {
-        return elementList.size
+//    override fun getItemCount(): Int {
+//        return elementList.size
+//    }
+
+    class diffutil : DiffUtil.ItemCallback<Element>(){
+
+        override fun areItemsTheSame(oldItem: Element, newItem: Element): Boolean {
+            return oldItem.number == newItem.number
+        }
+
+        override fun areContentsTheSame(oldItem: Element, newItem: Element): Boolean {
+            return oldItem == newItem
+        }
+
     }
+
+
 
     private fun changeVisibilityOfView(isVisible: Boolean, holder: ListedElementViewHolder){
 
