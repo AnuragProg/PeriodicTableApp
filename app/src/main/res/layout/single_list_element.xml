@@ -13,13 +13,7 @@
         android:id="@+id/element_single_card"
         android:clickable="true"
         android:backgroundTint="#98ff98"
-
-        >
-<!--        app:cardUseCompatPadding="true"-->
-
-        <!--                app:cardElevation="20dp"-->
-        <!--        app:cardBackgroundColor="#745FC7"-->
-        <!--        android:transitionName="shared_element_container"-->
+        android:focusable="true">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -107,34 +101,7 @@
                     android:layout_below="@id/element_melting_point"
                     android:layout_centerHorizontal="true"
                     />
-<!--                <TextView-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:id="@+id/element_configuration"-->
-<!--                    android:layout_below="@id/element_electron_affinity"-->
-<!--                    android:layout_centerHorizontal="true"-->
-<!--                    />-->
-<!--                <TextView-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:id="@+id/element_ionization_energy"-->
-<!--                    android:layout_below="@id/element_configuration"-->
-<!--                    android:layout_centerHorizontal="true"-->
-<!--                    />-->
-<!--                <TextView-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:id="@+id/element_category"-->
-<!--                    android:layout_below="@id/element_ionization_energy"-->
-<!--                    android:layout_centerHorizontal="true"-->
-<!--                    />-->
-<!--                <TextView-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:id="@+id/element_summary"-->
-<!--                    android:layout_below="@id/element_electron_affinity"-->
-<!--                    android:layout_centerHorizontal="true"-->
-<!--                    />-->
+
             </RelativeLayout>
         </LinearLayout>
     </com.google.android.material.card.MaterialCardView>

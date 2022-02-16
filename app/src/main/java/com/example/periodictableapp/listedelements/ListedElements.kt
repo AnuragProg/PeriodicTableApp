@@ -56,11 +56,10 @@ class ListedElements : Fragment() {
 
         val custom_menu = menu.findItem(R.id.search_bar)
         val search_view = custom_menu?.actionView as SearchView
-        search_view.queryHint = "Query Hint"
+        search_view.queryHint = "Element Name"
 
         search_view.setOnQueryTextListener( object : SearchView.OnQueryTextListener{
             override fun onQueryTextSubmit(query: String?): Boolean {
-                Toast.makeText(requireContext(), "onQueryTextSubmit called", Toast.LENGTH_SHORT).show()
                 return false
             }
 

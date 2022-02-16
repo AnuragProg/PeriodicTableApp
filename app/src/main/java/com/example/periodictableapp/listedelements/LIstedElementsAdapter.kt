@@ -16,9 +16,7 @@ import com.google.android.material.card.MaterialCardView
 import org.w3c.dom.Text
 
 
-class ListedElementsAdapter(
-//    private val elementList : List<Element>
-): ListAdapter<Element, ListedElementsAdapter.ListedElementViewHolder>(diffutil()) {
+class ListedElementsAdapter(): ListAdapter<Element, ListedElementsAdapter.ListedElementViewHolder>(diffutil()) {
 
     inner class ListedElementViewHolder(view: View) : RecyclerView.ViewHolder(view){
 
@@ -36,10 +34,6 @@ class ListedElementsAdapter(
         var element_boiling_point = view.findViewById<TextView>(R.id.element_boiling_point)
         var element_melting_point = view.findViewById<TextView>(R.id.element_melting_point)
         var element_electron_affinity = view.findViewById<TextView>(R.id.element_electron_affinity)
-//        var element_configuration = view.findViewById<TextView>(R.id.element_configuration)
-//        var element_ionization_energy = view.findViewById<TextView>(R.id.element_ionization_energy)
-//        var element_category = view.findViewById<TextView>(R.id.element_category)
-//        var element_summary = view.findViewById<TextView>(R.id.element_summary)
 
 
     }
@@ -50,7 +44,6 @@ class ListedElementsAdapter(
     }
 
     override fun onBindViewHolder(holder: ListedElementViewHolder, position: Int) {
-//        val element = elementList[position]
 
         val element = getItem(position)
 
@@ -78,10 +71,6 @@ class ListedElementsAdapter(
         holder.element_boiling_point.setText(element_boiling_point)
         holder.element_melting_point.setText(element_melting_point)
         holder.element_electron_affinity.setText(element_electron_affinity)
-//        holder.element_configuration.setText(element_configuration)
-//        holder.element_ionization_energy.setText(element_ionization_energy)
-//        holder.element_category.setText(element_category)
-//        holder.element_summary.setText(element_summary)
 
 
         changeVisibilityOfView(element.visible, holder)
@@ -94,9 +83,6 @@ class ListedElementsAdapter(
 
     }
 
-//    override fun getItemCount(): Int {
-//        return elementList.size
-//    }
 
     class diffutil : DiffUtil.ItemCallback<Element>(){
 
