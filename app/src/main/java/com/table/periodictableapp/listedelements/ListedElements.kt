@@ -1,4 +1,4 @@
-package com.example.periodictableapp.listedelements
+package com.table.periodictableapp.listedelements
 
 import android.os.Bundle
 import android.provider.Settings
@@ -12,9 +12,9 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.periodictableapp.R
-import com.example.periodictableapp.getPeriodicTableFromAsset
-import com.example.periodictableapp.periodictable.AllElements
-import com.example.periodictableapp.periodictable.Element
+import com.table.periodictableapp.getPeriodicTableFromAsset
+import com.table.periodictableapp.periodictable.AllElements
+import com.table.periodictableapp.periodictable.Element
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 

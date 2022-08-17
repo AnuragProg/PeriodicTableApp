@@ -1,4 +1,4 @@
-package com.example.periodictableapp.periodictable
+package com.table.periodictableapp.periodictable
 
 data class Element(
     val appearance: String?,

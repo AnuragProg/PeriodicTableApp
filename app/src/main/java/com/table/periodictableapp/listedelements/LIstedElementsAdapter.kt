@@ -1,4 +1,4 @@
-package com.example.periodictableapp.listedelements
+package com.table.periodictableapp.listedelements
 
 import android.view.LayoutInflater
 import android.view.View
@@ -11,12 +11,13 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.periodictableapp.R
-import com.example.periodictableapp.periodictable.Element
+import com.table.periodictableapp.periodictable.Element
 import com.google.android.material.card.MaterialCardView
 import org.w3c.dom.Text
 
 
-class ListedElementsAdapter(): ListAdapter<Element, ListedElementsAdapter.ListedElementViewHolder>(diffutil()) {
+class ListedElementsAdapter(): ListAdapter<Element, ListedElementsAdapter.ListedElementViewHolder>(
+    diffutil()) {
 
     inner class ListedElementViewHolder(view: View) : RecyclerView.ViewHolder(view){
 

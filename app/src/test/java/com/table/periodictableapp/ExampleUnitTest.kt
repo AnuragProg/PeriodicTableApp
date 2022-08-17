@@ -1,4 +1,4 @@
-package com.example.periodictableapp
+package com.table.periodictableapp
 
 import org.junit.Test
 

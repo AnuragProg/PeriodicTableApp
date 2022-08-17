@@ -1,4 +1,4 @@
-package com.example.periodictableapp
+package com.table.periodictableapp
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -6,6 +6,7 @@ import android.os.Bundle
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupActionBarWithNavController
+import com.example.periodictableapp.R
 
 
 class MainActivity : AppCompatActivity() {
